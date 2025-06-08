@@ -1,0 +1,227 @@
+#include "lcp.h"
+#include "config_LPC1769.h"
+
+extern int time;
+static void ILI9341_Initial(void);
+
+void lcp_init_gpio(const int dir[5])
+{
+    FIO0DIR = dir[0];
+    FIO1DIR = dir[1];
+    FIO2DIR = dir[2];
+    FIO3DIR = dir[3];
+    FIO4DIR = dir[4];
+}
+
+void lcp_init_interruption(const int enable[2])
+{
+    IO0IntEnF = enable[0];//Activer les interruptions Falling sur le port 0
+    IO2IntEnF = enable[1];//Activer les interruptions Falling sur le port 2
+    ISER0 = (1<<21);//Activer les intteruptions GPIO
+}
+
+void lcp_init_timer(void)
+{
+    STCTRL = 0b111;
+    STRELOAD = (SYSCLOCK / 1000) - 1;
+}
+
+void lcp_init_screen(void)
+{
+    /* Section setup */
+	FIO1MASK &= ~(1 << 30);
+	FIO1MASK &= ~(1 << 18);
+
+	//Chip select (selection de l'ecran)
+	FIO0DIR |= (1 << 16);   // nCS_LCD -> out
+	// Backligth control (activation ou non)
+	FIO1DIR |= (1 << 18);   // BL_ctrl -> out
+	// Data/Command control 0 = commande, 1 = data
+	FIO1DIR |= (1 << 30);   // LCD_DC -> out
+	// Backligth activation
+	FIO1SET = (1 << 18);
+
+	// FIO0PIN |= (1 << 16);
+
+	/* Section SPI */
+    PINSEL0 |= (0b11 << 30);  // P0.15 -> SSP0_CLK
+    PINSEL1 |= (0b11 << 2) | (0b11 << 4);   // P0.18 -> SSP0_MOSI MISO
+
+    // Activation du slave mode
+    S0SPCR |= (1 << 5);
+    // frequence du SPI (ici PCLK/8)
+    S0SPCCR = 8;
+
+    ILI9341_Initial();
+}
+
+void lcp_gpio_set_led(uint8_t led, bool state)
+{
+    if(state) FIO2SET = (1 << led);
+    else      FIO2CLR = (1 << led);
+}
+
+void lcp_gpio_set_leds(uint8_t leds)
+{
+    FIO2MASK = ~(0b11111111);
+    FIO2PIN = leds;
+}
+
+uint8_t lcp_gpio_get_joystick(void)
+{
+    return ~(FIO1PIN >> 19);
+}
+
+bool lcp_gpio_test_joystick_state(uint8_t pos)
+{
+    return (lcp_gpio_get_joystick() & pos) == pos;
+}
+
+void lcp_delay_ms(int ms)
+{
+    int initial_time = time;
+    while(time < initial_time + ms);
+}
+
+void lcp_spi_send(uint8_t data)
+{
+    S0SPDR = data;//Ecrire dans le registre de données
+    while(!(S0SPSR & (1 << 7)));//Attendre que le registre soit vide
+}
+
+void lcp_spi_write_command(uint8_t command)
+{
+    FIO0CLR = (1 << 16);//Mettre le bit nCS_LCD à 0 pour démarrer la communication
+    FIO1CLR = (1 << 30);//Mettre le bit LCD_DC à 0 car on envoie une commande
+    lcp_spi_send(command);
+    FIO0SET = (1 << 16);//Mettre le bit nCS_LCD à 1 pour terminer la communication
+}
+
+void lcp_spi_write_data(uint8_t data)
+{
+    FIO0CLR = (1 << 16);//Mettre le bit nCS_LCD à 0 pour démarrer la communication
+    FIO1SET = (1 << 30);//Mettre le bit LCD_DC à 1 car on envoie des données
+    lcp_spi_send(data);
+    FIO0SET = (1 << 16);//Mettre le bit nCS_LCD à 1 pour terminer la communication
+}
+
+void lcp_spi_write_color(uint16_t color)
+{
+    lcp_spi_write_data(color >> 8);  //MSB - Most Significant Byte
+    lcp_spi_write_data(color & 0xFF);//LSB - Least Significant Byte
+}
+
+static void ILI9341_Initial(void)
+{
+	lcp_spi_write_command(0x01); //software reset
+	lcp_delay_ms(5);
+
+	lcp_spi_write_command(0x11);
+	lcp_delay_ms(120);
+
+ 	lcp_spi_write_command(0xCF);
+	lcp_spi_write_data(0x00);
+	lcp_spi_write_data(0x83);
+	lcp_spi_write_data(0X30);
+
+ 	lcp_spi_write_command(0xED);
+	lcp_spi_write_data(0x64);
+	lcp_spi_write_data(0x03);
+	lcp_spi_write_data(0X12);
+	lcp_spi_write_data(0X81);
+
+ 	lcp_spi_write_command(0xE8);
+	lcp_spi_write_data(0x85);
+	lcp_spi_write_data(0x01);
+	lcp_spi_write_data(0x79);
+
+ 	lcp_spi_write_command(0xCB);
+	lcp_spi_write_data(0x39);
+	lcp_spi_write_data(0x2C);
+	lcp_spi_write_data(0x00);
+	lcp_spi_write_data(0x34);
+	lcp_spi_write_data(0x02);
+
+ 	lcp_spi_write_command(0xF7);
+	lcp_spi_write_data(0x20);
+
+ 	lcp_spi_write_command(0xEA);
+	lcp_spi_write_data(0x00);
+	lcp_spi_write_data(0x00);
+
+ 	lcp_spi_write_command(0xC1); //Power control
+	lcp_spi_write_data(0x11);    //SAP[2:0];BT[3:0]
+
+ 	lcp_spi_write_command(0xC5); //VCM control 1
+	lcp_spi_write_data(0x34);
+	lcp_spi_write_data(0x3D);
+
+ 	lcp_spi_write_command(0xC7); //VCM control 2
+	lcp_spi_write_data(0xC0);
+
+ 	lcp_spi_write_command(0x36); //Memory Access Control
+	lcp_spi_write_data(0x08);
+
+ 	lcp_spi_write_command(0x3A); //Pixel format
+	lcp_spi_write_data(0x55);    //16bit
+
+ 	lcp_spi_write_command(0xB1); // Frame rate
+	lcp_spi_write_data(0x00);
+	lcp_spi_write_data(0x1D);    //65Hz
+
+ 	lcp_spi_write_command(0xB6); // Display Function Control
+	lcp_spi_write_data(0x0A);
+	lcp_spi_write_data(0xA2);
+	lcp_spi_write_data(0x27);
+	lcp_spi_write_data(0x00);
+
+	lcp_spi_write_command(0xb7); //Entry mode
+	lcp_spi_write_data(0x07);
+
+
+ 	lcp_spi_write_command(0xF2); // 3Gamma Function Disable
+	lcp_spi_write_data(0x08);
+
+ 	lcp_spi_write_command(0x26); //Gamma curve selected
+	lcp_spi_write_data(0x01);
+
+
+	lcp_spi_write_command(0xE0); //positive gamma correction
+	lcp_spi_write_data(0x1f);
+	lcp_spi_write_data(0x1a);
+	lcp_spi_write_data(0x18);
+	lcp_spi_write_data(0x0a);
+	lcp_spi_write_data(0x0f);
+	lcp_spi_write_data(0x06);
+	lcp_spi_write_data(0x45);
+	lcp_spi_write_data(0x87);
+	lcp_spi_write_data(0x32);
+	lcp_spi_write_data(0x0a);
+	lcp_spi_write_data(0x07);
+	lcp_spi_write_data(0x02);
+	lcp_spi_write_data(0x07);
+	lcp_spi_write_data(0x05);
+	lcp_spi_write_data(0x00);
+
+	lcp_spi_write_command(0xE1); //negamma correction
+	lcp_spi_write_data(0x00);
+	lcp_spi_write_data(0x25);
+	lcp_spi_write_data(0x27);
+	lcp_spi_write_data(0x05);
+	lcp_spi_write_data(0x10);
+	lcp_spi_write_data(0x09);
+	lcp_spi_write_data(0x3a);
+	lcp_spi_write_data(0x78);
+	lcp_spi_write_data(0x4d);
+	lcp_spi_write_data(0x05);
+	lcp_spi_write_data(0x18);
+	lcp_spi_write_data(0x0d);
+	lcp_spi_write_data(0x38);
+	lcp_spi_write_data(0x3a);
+	lcp_spi_write_data(0x1f);
+
+ 	lcp_spi_write_command(0x11); //Exit Sleep
+ 	lcp_delay_ms(120);
+ 	lcp_spi_write_command(0x29); //Display on
+ 	lcp_delay_ms(50);
+}
