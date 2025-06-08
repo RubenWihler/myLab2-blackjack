@@ -1,4 +1,4 @@
 Debug/
-'blackjack LinkServer Debug.launch'
+*.launch
 
 tools/venv/
