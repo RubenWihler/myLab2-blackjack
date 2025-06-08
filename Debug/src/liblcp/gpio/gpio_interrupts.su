@@ -1,0 +1,8 @@
+../src/liblcp/gpio/gpio_interrupts.c:28:28:get_inst	16	static
+../src/liblcp/gpio/gpio_interrupts.c:39:6:gpio_int_init	24	static
+../src/liblcp/gpio/gpio_interrupts.c:58:6:gpio_int_free	8	static
+../src/liblcp/gpio/gpio_interrupts.c:67:6:gpio_int_enable	4	static
+../src/liblcp/gpio/gpio_interrupts.c:72:6:gpio_int_set_fn	56	static
+../src/liblcp/gpio/gpio_interrupts.c:100:6:gpio_int_handle	24	static
+../src/liblcp/gpio/gpio_interrupts.c:124:6:GPIO_IRQHandler	24	static
+../src/liblcp/gpio/gpio_interrupts.c:141:27:get_int_reg	16	static

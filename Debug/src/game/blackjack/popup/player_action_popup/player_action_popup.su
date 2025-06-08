@@ -1,0 +1,6 @@
+../src/game/blackjack/popup/player_action_popup/player_action_popup.c:26:6:player_action_popup_show	16	static
+../src/game/blackjack/popup/player_action_popup/player_action_popup.c:44:20:draw_popup	8	static
+../src/game/blackjack/popup/player_action_popup/player_action_popup.c:50:20:clear_popup	16	static
+../src/game/blackjack/popup/player_action_popup/player_action_popup.c:55:13:enable_btn	32	static
+../src/game/blackjack/popup/player_action_popup/player_action_popup.c:62:13:on_hit_click	4	static
+../src/game/blackjack/popup/player_action_popup/player_action_popup.c:68:13:on_stand_click	4	static

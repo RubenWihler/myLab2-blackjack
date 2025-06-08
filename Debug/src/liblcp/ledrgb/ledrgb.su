@@ -1,0 +1,2 @@
+../src/liblcp/ledrgb/ledrgb.c:7:6:set_rgb_leds	232	static
+../src/liblcp/ledrgb/ledrgb.c:30:13:encode	16	static

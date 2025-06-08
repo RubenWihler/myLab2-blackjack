@@ -1,0 +1,4 @@
+../src/liblcp/rendering/ui/elements/trigger_zone/trigger_zone.c:6:6:trigger_zone_init	16	static
+../src/liblcp/rendering/ui/elements/trigger_zone/trigger_zone.c:20:6:trigger_zone_add	24	static
+../src/liblcp/rendering/ui/elements/trigger_zone/trigger_zone.c:25:6:trigger_zone_clear	8	static
+../src/liblcp/rendering/ui/elements/trigger_zone/trigger_zone.c:31:6:trigger_zone_test	32	static

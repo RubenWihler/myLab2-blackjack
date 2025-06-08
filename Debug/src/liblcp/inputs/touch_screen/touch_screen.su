@@ -1,0 +1,2 @@
+../src/liblcp/inputs/touch_screen/touch_screen.c:8:6:touch_screen_init	8	static
+../src/liblcp/inputs/touch_screen/touch_screen.c:18:9:touch_screen_get_position	48	static

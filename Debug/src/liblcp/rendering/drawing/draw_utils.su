@@ -1,0 +1,2 @@
+../src/liblcp/rendering/drawing/draw_utils.c:6:6:draw_rect	32	static
+../src/liblcp/rendering/drawing/draw_utils.c:24:6:draw_gradient	48	static

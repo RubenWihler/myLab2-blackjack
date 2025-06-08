@@ -1,0 +1,8 @@
+../src/game/scene/scenes/new_game_scene.c:37:13:new_game_load	56	static
+../src/game/scene/scenes/new_game_scene.c:50:13:new_game_unload	8	static
+../src/game/scene/scenes/new_game_scene.c:55:13:new_game_update	4	static
+../src/game/scene/scenes/new_game_scene.c:59:13:on_start_click	8	static
+../src/game/scene/scenes/new_game_scene.c:64:13:on_back_click	8	static
+../src/game/scene/scenes/new_game_scene.c:70:13:on_character_arrow_left_click	8	static
+../src/game/scene/scenes/new_game_scene.c:78:13:on_character_arrow_right_click	8	static
+../src/game/scene/scenes/new_game_scene.c:85:13:draw_character_name	64	static

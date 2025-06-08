@@ -1,0 +1,4 @@
+../src/game/scene/scenes/game_scene.c:26:13:game_load	16	static
+../src/game/scene/scenes/game_scene.c:36:13:game_unload	8	static
+../src/game/scene/scenes/game_scene.c:41:13:game_update	4	static
+../src/game/scene/scenes/game_scene.c:45:13:play_round	104	static

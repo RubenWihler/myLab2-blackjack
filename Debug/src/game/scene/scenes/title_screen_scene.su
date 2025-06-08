@@ -1,0 +1,5 @@
+../src/game/scene/scenes/title_screen_scene.c:30:13:title_screen_load	64	static
+../src/game/scene/scenes/title_screen_scene.c:46:13:title_screen_unload	8	static
+../src/game/scene/scenes/title_screen_scene.c:51:13:title_screen_update	32	static
+../src/game/scene/scenes/title_screen_scene.c:73:13:on_new_game_click	8	static
+../src/game/scene/scenes/title_screen_scene.c:79:13:on_credit_click	8	static

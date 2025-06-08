@@ -1,0 +1,2 @@
+../src/liblcp/log/log.c:18:6:log_error	640	static
+../src/liblcp/log/log.c:85:13:create_error_message	56	static

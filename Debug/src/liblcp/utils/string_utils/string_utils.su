@@ -1,0 +1,2 @@
+../src/liblcp/utils/string_utils/string_utils.c:9:7:str_from_uint16	72	dynamic
+../src/liblcp/utils/string_utils/string_utils.c:34:7:str_from_uint64	72	dynamic

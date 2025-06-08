@@ -1,0 +1,12 @@
+../src/game/blackjack/popup/bet_popup/bet_popup.c:41:6:bet_popop_show	16	static
+../src/game/blackjack/popup/bet_popup/bet_popup.c:64:20:draw_popup	8	static
+../src/game/blackjack/popup/bet_popup/bet_popup.c:69:20:clear_popup	16	static
+../src/game/blackjack/popup/bet_popup/bet_popup.c:74:13:enable_btn	96	static
+../src/game/blackjack/popup/bet_popup/bet_popup.c:93:13:update_bet_tbox	72	static
+../src/game/blackjack/popup/bet_popup/bet_popup.c:118:13:on_increment_click	16	static
+../src/game/blackjack/popup/bet_popup/bet_popup.c:127:13:on_decrement_click	16	static
+../src/game/blackjack/popup/bet_popup/bet_popup.c:136:13:on_25_percent_click	16	static
+../src/game/blackjack/popup/bet_popup/bet_popup.c:142:13:on_50_percent_click	16	static
+../src/game/blackjack/popup/bet_popup/bet_popup.c:148:13:on_75_percent_click	16	static
+../src/game/blackjack/popup/bet_popup/bet_popup.c:154:13:on_100_percent_click	8	static
+../src/game/blackjack/popup/bet_popup/bet_popup.c:160:13:on_ok_click	4	static

@@ -1,0 +1,5 @@
+../src/game/scene/scene.c:12:6:scene_init	40	static
+../src/game/scene/scene.c:19:6:scene_load	16	static
+../src/game/scene/scene.c:24:6:scene_unload	16	static
+../src/game/scene/scene.c:29:6:scene_update	16	static
+../src/game/scene/scene.c:34:20:get_scene_api	40	static

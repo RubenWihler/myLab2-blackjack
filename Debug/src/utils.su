@@ -1,0 +1,2 @@
+../src/utils.c:426:6:SystemCoreClockUpdate	120	static
+../src/utils.c:477:6:SystemInit	4	static

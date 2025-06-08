@@ -1,0 +1,4 @@
+../src/game/scene/scenes/credit_scene.c:25:13:credit_load	32	static
+../src/game/scene/scenes/credit_scene.c:36:13:credit_unload	8	static
+../src/game/scene/scenes/credit_scene.c:41:13:credit_update	16	static
+../src/game/scene/scenes/credit_scene.c:54:13:on_back_click	8	static

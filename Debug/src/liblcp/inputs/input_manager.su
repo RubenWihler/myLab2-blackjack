@@ -1,0 +1,9 @@
+../src/liblcp/inputs/input_manager.c:19:18:input_manager_get_instance	16	static
+../src/liblcp/inputs/input_manager.c:30:18:input_manager_init	32	static
+../src/liblcp/inputs/input_manager.c:70:6:input_manager_destroy	16	static
+../src/liblcp/inputs/input_manager.c:86:6:input_manager_add_listener	24	static
+../src/liblcp/inputs/input_manager.c:97:13:enable_handling	24	static
+../src/liblcp/inputs/input_manager.c:123:13:handle_button_a	24	static
+../src/liblcp/inputs/input_manager.c:133:13:handle_button_b	24	static
+../src/liblcp/inputs/input_manager.c:143:13:handle_joystick	24	static
+../src/liblcp/inputs/input_manager.c:157:13:handle_touch_screen	48	static

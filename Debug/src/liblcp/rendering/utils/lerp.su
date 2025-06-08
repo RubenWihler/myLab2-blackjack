@@ -1,0 +1,2 @@
+../src/liblcp/rendering/utils/lerp.c:8:10:lerp	24	static
+../src/liblcp/rendering/utils/lerp.c:18:10:lerp_color	40	static

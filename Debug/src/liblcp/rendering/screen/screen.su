@@ -1,0 +1,9 @@
+../src/liblcp/rendering/screen/screen.c:13:6:screen_init	8	static
+../src/liblcp/rendering/screen/screen.c:57:6:screen_write_start	16	static
+../src/liblcp/rendering/screen/screen.c:67:6:screen_write	16	static
+../src/liblcp/rendering/screen/screen.c:72:6:screen_write_end	4	static
+../src/liblcp/rendering/screen/screen.c:77:6:screen_write_16b	16	static
+../src/liblcp/rendering/screen/screen.c:84:6:screen_write_command	16	static
+../src/liblcp/rendering/screen/screen.c:91:6:screen_write_data	16	static
+../src/liblcp/rendering/screen/screen.c:98:6:screen_set_vzone	16	static
+../src/liblcp/rendering/screen/screen.c:112:13:ILI9341_Initial	8	static

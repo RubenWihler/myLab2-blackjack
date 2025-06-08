@@ -1,0 +1,12 @@
+../src/game/blackjack/render/blackjack_render.c:47:6:draw_cards	32	static
+../src/game/blackjack/render/blackjack_render.c:63:6:draw_total	96	static
+../src/game/blackjack/render/blackjack_render.c:97:6:draw_bet	112	static
+../src/game/blackjack/render/blackjack_render.c:129:6:draw_money	112	static
+../src/game/blackjack/render/blackjack_render.c:161:6:draw_big_text	96	static
+../src/game/blackjack/render/blackjack_render.c:209:6:draw_bg	16	static
+../src/game/blackjack/render/blackjack_render.c:215:13:draw_card	32	static
+../src/game/blackjack/render/blackjack_render.c:226:13:draw_card_icon	32	static
+../src/game/blackjack/render/blackjack_render.c:235:13:draw_card_value	80	static
+../src/game/blackjack/render/blackjack_render.c:261:14:get_card_value_str	24	static
+../src/game/blackjack/render/blackjack_render.c:282:23:get_card_icon_sprite	16	static
+../src/game/blackjack/render/blackjack_render.c:293:20:get_big_text_text	16	static

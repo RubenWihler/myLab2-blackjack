@@ -1,0 +1,2 @@
+../src/liblcp/rendering/ui/elements/textbox/textbox.c:13:6:tbox_draw	56	static
+../src/liblcp/rendering/ui/elements/textbox/textbox.c:73:13:draw_char	56	static

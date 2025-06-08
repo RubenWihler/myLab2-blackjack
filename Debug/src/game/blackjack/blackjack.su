@@ -1,0 +1,5 @@
+../src/game/blackjack/blackjack.c:18:6:bj_init	40	static
+../src/game/blackjack/blackjack.c:43:6:bj_start	72	static
+../src/game/blackjack/blackjack.c:128:13:draw_state	24	static
+../src/game/blackjack/blackjack.c:140:22:draw	16	static
+../src/game/blackjack/blackjack.c:145:16:get_total	24	static

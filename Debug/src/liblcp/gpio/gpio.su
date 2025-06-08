@@ -1,0 +1,4 @@
+../src/liblcp/gpio/gpio.c:7:6:gpio_led_set	16	static
+../src/liblcp/gpio/gpio.c:15:6:gpio_led_set_all	16	static
+../src/liblcp/gpio/gpio.c:21:18:gpio_joystick_get_state	4	static
+../src/liblcp/gpio/gpio.c:27:6:gpio_joystick_test_state	16	static

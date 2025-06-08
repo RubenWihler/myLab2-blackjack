@@ -1,0 +1,7 @@
+../src/game/game.c:12:9:game_instance	16	static
+../src/game/game.c:23:6:game_init	16	static
+../src/game/game.c:41:6:game_start	16	static
+../src/game/game.c:47:6:game_stop	16	static
+../src/game/game.c:52:6:game_destroy	16	static
+../src/game/game.c:60:6:game_load_scene	32	static
+../src/game/game.c:76:13:game_loop	16	static
