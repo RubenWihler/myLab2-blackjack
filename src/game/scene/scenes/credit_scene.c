@@ -6,6 +6,9 @@
 #include "../../../res/sprites/credit.h"
 #include "../../../liblcp/ledrgb/ledrgb.h"
 #include "../../../liblcp/rendering/utils/color_utils.h"
+#include "../../../liblcp/time/time.h"
+
+#include <stdlib.h>
 
 extern const scene_api_t credit_scene_api;
 extern const uint16_t screen_width, screen_height;
@@ -44,10 +47,14 @@ static void credit_update()
     static float hue = 0.0f;
     static uint8_t r, g, b;
 
-    hsv_to_rgb(hue, 1.0f, 1.0f, &r, &g, &b);
-    set_rgb_leds(r, g, b);
+    //time_ms vient de #include "/liblcp/time/time.h"
+    if ((time_ms % 37) == 0)
+    {
+        hsv_to_rgb(hue, 1.0f, 1.0f, &r, &g, &b);
+        set_rgb_leds(r, g, b);
+    }
 
-    hue += 1.0f;
+    hue += 0.7f;
     if (hue >= 360.0f) hue = 0.0f;
 }
 
