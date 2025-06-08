@@ -1,6 +1,6 @@
 # myLab2-blackjack
 
-Dans le cadre du cours **ISC_133 Programmation des micro-contrôleurs**, nous devions faire un jeu sur une carte cree par l'HEPIA. J'ai choisi de faire un jeu de blackjack. Le but est de gagner le plus de points possible en tirant les cartes de 2 a 10. Le jeu est jouable eb 1 vs IA.
+Dans le cadre du cours **ISC_133 Programmation des micro-contrôleurs**, nous devions faire un jeu sur une carte cree par l'HEPIA. J'ai choisi de faire un jeu de blackjack. Le jeu est jouable eb 1 vs IA.
 
 ## :rocket: Fonctionnalites
 
